@@ -6,14 +6,11 @@ let sequelize;
 if (process.env.USE_DATABASE_URL === 'true' && process.env.DATABASE_URL) {
   sequelize = new Sequelize(process.env.DATABASE_URL, {
     dialect: 'postgres',
-    protocol: 'postgres',
     dialectOptions: {
       ssl: {
         require: true,
         rejectUnauthorized: false,
       },
-      // Force IPv4
-      family: 4,
     },
     logging: false,
   });
