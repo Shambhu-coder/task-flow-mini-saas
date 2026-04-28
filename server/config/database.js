@@ -12,6 +12,12 @@ if (process.env.USE_DATABASE_URL === 'true' && process.env.DATABASE_URL) {
         rejectUnauthorized: false,
       },
     },
+    pool: {
+      max: 3,
+      min: 0,
+      acquire: 30000,
+      idle: 10000,
+    },
     logging: false,
   });
 } else {
